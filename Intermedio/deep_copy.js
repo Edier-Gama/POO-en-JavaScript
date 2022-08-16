@@ -58,3 +58,29 @@ const luis = {
 
      return copySubject
   }
+
+
+  const studentBase = {
+   name: undefined,
+   email: undefined,
+   age: undefined,
+   approvedCourse: undefined,
+   learningPaths: undefined,
+   socialMedia:{
+      twitter: undefined,
+      instagram: undefined,
+      github:undefined
+   }
+
+  }
+
+  const juan = deepCopy(studentBase)
+
+  Object.seal(juan)
+  Object.defineProperty(juan, 'name', {
+   value: 'Juanito',
+   configurable: false,
+  })
+
+  Object.isSealed(juan) // Verifica que ninguna propiedad se pueda eliminar
+  Object.isFrozen(juan) // Verifica que ninguna propiedad se pueda ni editar ni eliminar
